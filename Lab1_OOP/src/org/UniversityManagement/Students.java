@@ -1,12 +1,12 @@
 package org.UniversityManagement;
 
-public class Student {
+public class Students {
     private int id;
     private String name;
     private String level;
     private double gpa;
 
-    public Student(int id, String name, String level, double gpa) {
+    public Students(int id, String name, String level, double gpa) {
         this.id = id;
         this.name = name;
         this.level = level;

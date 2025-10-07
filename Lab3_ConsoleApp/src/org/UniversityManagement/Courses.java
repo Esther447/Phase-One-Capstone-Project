@@ -2,13 +2,13 @@ package org.UniversityManagement;
 
 import java.util.List;
 
-public class Course {
+public class Courses {
     private int id;
     private String name;
     private int credit;
-    private List<String> students; // or List<Student> if you have Student class
+    private List<String> students;  // or List<Student> if you already have Student class
 
-    public Course(int id, String name, int credit, List<String> students) {
+    public Courses(int id, String name, int credit, List<String> students) {
         this.id = id;
         this.name = name;
         this.credit = credit;
@@ -27,4 +27,9 @@ public class Course {
 
     public List<String> getStudents() { return students; }
     public void setStudents(List<String> students) { this.students = students; }
+
+    @Override
+    public String toString() {
+        return String.format("Course{id=%d, name='%s', credit=%d}", id, name, credit);
+    }
 }
