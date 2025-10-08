@@ -5,31 +5,47 @@ import java.util.List;
 public class Courses {
     private int id;
     private String name;
-    private int credit;
-    private List<String> students;  // or List<Student> if you already have Student class
+    private int credits;
+    private List<String> students;  // or maybe List<Student> depending on your design
 
-    public Courses(int id, String name, int credit, List<String> students) {
+    public Courses(int id, String name, int credits, List<String> students) {
         this.id = id;
         this.name = name;
-        this.credit = credit;
+        this.credits = credits;
         this.students = students;
     }
 
-    // Getters and Setters
-    public int getId() { return id; }
-    public void setId(int id) { this.id = id; }
+    // ✅ Getters
+    public int getId() {
+        return id;
+    }
 
-    public String getName() { return name; }
-    public void setName(String name) { this.name = name; }
+    public String getName() {
+        return name;
+    }
 
-    public int getCredit() { return credit; }
-    public void setCredit(int credit) { this.credit = credit; }
+    public int getCredits() {   // <-- this one was missing
+        return credits;
+    }
 
-    public List<String> getStudents() { return students; }
-    public void setStudents(List<String> students) { this.students = students; }
+    public List<String> getStudents() {
+        return students;
+    }
 
-    @Override
-    public String toString() {
-        return String.format("Course{id=%d, name='%s', credit=%d}", id, name, credit);
+    // ✅ Setters (optional, if you need to update values later)
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setCredits(int credits) {
+        this.credits = credits;
+    }
+
+    public void setStudents(List<String> students) {
+        this.students = students;
     }
 }

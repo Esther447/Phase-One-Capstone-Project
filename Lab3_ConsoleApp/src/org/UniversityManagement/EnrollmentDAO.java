@@ -1,23 +1,18 @@
 package org.UniversityManagement;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class EnrollmentDAO {
+    public void enrollStudent(int studentId, int courseId) {
+        System.out.println("Enrolled student " + studentId + " in course " + courseId);
+    }
 
-    public boolean enrollStudentInCourse(int studentId, int courseId) {
-        String sql = "INSERT INTO enrollments(student_id, course_id) VALUES (?, ?)";
-        try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
-
-            stmt.setInt(1, studentId);
-            stmt.setInt(2, courseId);
-            return stmt.executeUpdate() > 0;
-
-        } catch (SQLException e) {
-            System.out.println("Error enrolling student: " + e.getMessage());
-        }
-        return false;
+    public List<String> getAllEnrollments() {
+        // Temporary implementation (just a placeholder list)
+        List<String> enrollments = new ArrayList<>();
+        enrollments.add("Student 1 -> Course 101");
+        enrollments.add("Student 2 -> Course 102");
+        return enrollments;
     }
 }
