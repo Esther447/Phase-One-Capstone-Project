@@ -27,6 +27,21 @@ public class StudentDAO {
         return -1;
     }
 
+    public boolean updateStudent(int id, String newName, String newLevel) {
+        String sql = "UPDATE students SET name = ?, level = ? WHERE id = ?";
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+            stmt.setString(1, newName);
+            stmt.setString(2, newLevel);
+            stmt.setInt(3, id);
+            int rows = stmt.executeUpdate();
+            System.out.println(rows > 0 ? " Student updated." : " Student not found.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
     public List<Student> getAllStudents() {
         List<Student> list = new ArrayList<>();
         String sql = "SELECT * FROM students";

@@ -72,7 +72,7 @@ public class CourseDAO {
     }
 
     // DELETE course
-    public boolean deleteCourse(int id) {
+    public boolean removeCourse(int id) {
         String sql = "DELETE FROM courses WHERE id=?";
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
